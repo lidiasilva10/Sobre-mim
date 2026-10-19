@@ -1,0 +1,1227 @@
+ <!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Lídia Bonim — Sobre mim</title>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap">
+
+<style>
+
+:root{
+  --bg:#F0ECE6;
+  --card:#FFFFFF;
+  --ink:#1B1A18;
+  --mute:#7B756D;
+  --line:#E2DCD3;
+  --acc:#B38E6F;
+  --sand:#E7DFD3;
+  --d:'DM Serif Display',Georgia,serif;
+  --b:'DM Sans','Segoe UI',Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px)
+}
+
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#171513;
+    --card:#211E1B;
+    --ink:#F2EEE8;
+    --mute:#A39C92;
+    --line:#33302B;
+    --acc:#CDA987;
+    --sand:#2A2621
+  }
+}
+
+:root[data-theme="dark"]{
+  --bg:#171513;
+  --card:#211E1B;
+  --ink:#F2EEE8;
+  --mute:#A39C92;
+  --line:#33302B;
+  --acc:#CDA987;
+  --sand:#2A2621
+}
+
+html{
+  scroll-padding-top:env(safe-area-inset-top,0px)
+}
+
+*{
+  box-sizing:border-box
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font:400 17px/1.7 var(--b)
+}
+
+.w{
+  max-width:1040px;
+  margin:0 auto;
+  padding:0 28px
+}
+
+a:focus-visible,
+button:focus-visible{
+  outline:2px solid var(--acc);
+  outline-offset:3px
+}
+
+section{
+  padding:96px 0;
+  border-top:1px solid var(--line)
+}
+
+.eb{
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--acc);
+  margin:0 0 18px
+}
+
+h1,h2,h3{
+  font-family:var(--d);
+  font-weight:400;
+  margin:0
+}
+
+h1,h2{
+  font-size:clamp(38px,6vw,64px);
+  line-height:1.08;
+  letter-spacing:-.01em;
+  margin-bottom:24px
+}
+
+h1 em,h2 em{
+  font-style:italic
+}
+
+.lead{
+  color:var(--mute);
+  font-size:19px;
+  max-width:52ch;
+  margin:0
+}
+
+.hero{
+  display:grid;
+  grid-template-columns:1fr 240px;
+  gap:56px;
+  align-items:center;
+  border:0;
+  padding-top:72px
+}
+
+
+/* FOTO */
+
+.foto{
+  width:240px;
+  height:300px;
+  border-radius:18px;
+  background:var(--sand);
+  overflow:hidden;
+  box-shadow:0 18px 40px rgba(27,26,24,.12);
+  position:relative
+}
+
+.foto img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block
+}
+
+
+/* CARDS */
+
+.cards{
+  display:grid;
+  gap:18px;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  margin-top:40px
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:26px 28px
+}
+
+.tag{
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--acc);
+  margin-bottom:10px;
+  display:flex;
+  align-items:center;
+  gap:10px
+}
+
+.card h3{
+  font-size:21px;
+  margin-bottom:8px
+}
+
+.card p{
+  margin:0;
+  font-size:15px;
+  line-height:1.65;
+  color:var(--mute)
+}
+
+
+/* TIMELINE */
+
+.tl{
+  position:relative;
+  margin-top:64px
+}
+
+.tl::before,
+.tl .fill{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:0;
+  width:1px
+}
+
+.tl::before{
+  bottom:0;
+  background:var(--line)
+}
+
+.tl .fill{
+  height:0;
+  background:var(--acc)
+}
+
+.item{
+  position:relative;
+  width:50%;
+  padding-right:56px;
+  margin-bottom:64px
+}
+
+.item.r{
+  margin-left:50%;
+  padding:0 0 0 56px
+}
+
+.item::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  right:-7px;
+  width:14px;
+  height:14px;
+  margin-top:-7px;
+  border-radius:50%;
+  border:1.5px solid var(--acc);
+  background:var(--bg);
+  transition:background .4s,transform .4s;
+  transform:scale(.6)
+}
+
+.item.r::after{
+  right:auto;
+  left:-7px
+}
+
+.item.in::after{
+  background:var(--acc);
+  transform:scale(1)
+}
+
+.item .card{
+  opacity:0;
+  translate:-22px 0;
+  transition:opacity .7s ease,translate .7s ease
+}
+
+.item.r .card{
+  translate:22px 0
+}
+
+.item.in .card{
+  opacity:1;
+  translate:0 0
+}
+
+
+/* HOBBIES */
+
+.pills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:36px
+}
+
+.pills span{
+  padding:10px 22px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:var(--card);
+  font-weight:500
+}
+
+.ct{
+  text-align:center;
+  padding-bottom:110px
+}
+
+.ct .lead{
+  margin:0 auto 32px
+}
+
+.btn{
+  display:inline-block;
+  padding:14px 28px;
+  border-radius:999px;
+  background:var(--ink);
+  color:var(--bg);
+  font-weight:600;
+  text-decoration:none;
+  margin:4px
+}
+
+.btn.o{
+  background:none;
+  color:var(--ink);
+  border:1.5px solid var(--ink)
+}
+
+
+/* MOBILE */
+
+@media(max-width:720px){
+
+  section{
+    padding:64px 0
+  }
+
+  .hero{
+    grid-template-columns:1fr;
+    gap:32px;
+    padding-top:40px
+  }
+
+  .foto{
+    width:150px;
+    height:190px;
+    border-radius:14px;
+    order:-1
+  }
+
+  .tl::before,
+  .tl .fill{
+    left:14px
+  }
+
+  .item,
+  .item.r{
+    width:auto;
+    margin-left:0;
+    padding:0 0 0 44px;
+    margin-bottom:28px
+  }
+
+  .item::after,
+  .item.r::after{
+    left:7px;
+    right:auto
+  }
+
+  .item .card,
+  .item.r .card{
+    translate:0 18px
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+
+  .item .card{
+    opacity:1;
+    translate:none;
+    transition:none
+  }
+
+  .item::after{
+    background:var(--acc);
+    transform:none;
+    transition:none
+  }
+
+  .tl .fill{
+    height:100%!important
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="w">
+
+<section class="hero">
+
+<div>
+
+<p class="eb">01 — Sobre mim</p>
+
+<h1>Olá, eu sou <em>Lídia Bonim.</em></h1>
+
+<p class="lead">
+
+Sou uma pessoa <strong>curiosa, observadora e movida pela vontade de aprender.</strong>
+
+Gosto de entender como as coisas funcionam, encontrar soluções e, principalmente,
+
+descobrir novas possibilidades no caminho.
+
+A tecnologia entrou na minha vida como uma área de conhecimento, mas acabou se tornando
+
+também uma forma de <strong>expressar minha criatividade, resolver problemas e conectar pessoas e ideias.</strong>
+
+Sou apaixonada por criar, aprender e transformar aquilo que parece complicado em algo mais simples.
+
+Gosto de desafios, de novas experiências e de ambientes onde posso crescer, contribuir e continuar descobrindo.
+
+Mas, antes de qualquer profissão, existe uma pessoa aqui: alguém que valoriza a
+
+<strong>simplicidade, a criatividade, o contato com pessoas, a natureza e os pequenos detalhes</strong>
+
+que tornam cada caminho único.
+
+Este espaço é um pouco sobre tudo isso — <strong>não apenas sobre o que eu faço, mas sobre quem eu sou enquanto faço.</strong>
+
+</p>
+
+</div>
+
+<div class="foto">
+
+<img 
+  src="file_0000000094b4820eb5309a89cde5a2ba(1).png"
+  alt="Lídia Bonim"
+>
+
+</div>
+
+</section>
+
+
+<p class="eb">02 — Essência</p>
+
+<h2>Curiosidade, criatividade e propósito.</h2>
+
+<p class="lead">
+Escreva aqui, em duas ou três frases, o que guia o seu trabalho: um valor, uma crença ou o jeito como você conduz projetos e relações.
+</p>
+
+<div class="cards">
+
+<div class="card">
+<div class="tag">Diferencial</div>
+<h3>Entender antes de resolver</h3>
+<p>Gosto de conhecer o contexto, ouvir as pessoas e compreender o problema antes de pensar em uma solução.</p>
+</div>
+
+<div class="card">
+<div class="tag">Diferencial</div>
+<h3>Conectar ideias</h3>
+<p>A tecnologia, para mim, não existe isoladamente. Gosto de aproximar pessoas, ideias e diferentes áreas para encontrar caminhos mais simples e criativos.</p>
+</div>
+
+<div class="card">
+<div class="tag">Diferencial</div>
+<h3>Criar e evoluir</h3>
+<p>Cada projeto é uma oportunidade de experimentar, aprender e transformar uma ideia em algo que realmente faça sentido.</p>
+</div>
+
+</div>
+
+
+<section>
+
+<p class="eb">03 — Minha jornada</p>
+
+<h2>
+Uma linha do tempo<br>
+<em>que ainda está sendo escrita.</em>
+</h2>
+
+<div class="tl" id="tl">
+
+<div class="fill" id="fill"></div>
+
+
+<div class="item l">
+
+<div class="card">
+
+<div class="tag">
+<span>📍</span>Início
+</div>
+
+<h3>Tudo começou com curiosidade</h3>
+
+<p>
+Minha trajetória começou na ETEC Professor Massuyuki Kawano, onde fiz o Ensino Médio integrado ao Técnico em Administração.
+Na época, eu imaginava que seguiria por esse caminho. Gostava de aprender, entender como as coisas funcionavam e descobrir novas possibilidades, mas ainda não sabia exatamente onde tudo isso me levaria.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="item r">
+
+<div class="card">
+
+<div class="tag">
+<span>🎓</span>Uma nova escolha
+</div>
+
+<h3>E então veio a tecnologia</h3>
+
+<p>
+Depois de concluir o Ensino Médio, decidi continuar estudando e prestei novamente o processo seletivo da ETEC, para curso Técnico.
+Entre diferentes possibilidades, passei no curso Técnico em Informática para Internet, que estava começando na escola e acontecia no período noturno.
+Entrei pensando que seria apenas mais uma formação para continuar evoluindo.
+Foi quando comecei a descobrir que a tecnologia poderia ser muito mais do que eu imaginava.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="item l">
+
+<div class="card">
+
+<div class="tag">
+<span>💻</span>Onde eu me encontrei
+</div>
+
+<h3>Criar também é uma forma de pensar</h3>
+
+<p>
+Durante o curso, percebi que sempre existiu em mim uma vontade muito grande de criar: imaginar ideias, pensar em layouts, experimentar possibilidades e transformar algo que estava apenas na minha cabeça em algo que pudesse existir.
+Foi no front-end que encontrei esse encontro entre criatividade, tecnologia e funcionalidade.
+Ali, percebi que poderia não apenas aprender tecnologia, mas também colocar parte de quem eu sou naquilo que construo.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="item r">
+
+<div class="card">
+
+<div class="tag">
+<span>🛠️</span>O primeiro passo profissional
+</div>
+
+<h3>Da sala de aula para a prática</h3>
+
+<p>
+Depois de concluir o curso técnico, consegui meu primeiro trabalho na área de tecnologia e hoje atuo como Técnica em Informática.
+Minha atuação é muito voltada para infraestrutura, suporte, redes, equipamentos e resolução de problemas.
+Não é exatamente onde quero chegar, mas foi — e continua sendo — uma etapa muito importante da minha trajetória.
+Foi trabalhando que pude sair um pouco da teoria e entender, na prática, como a tecnologia funciona por trás de tudo: redes, infraestrutura, processos, automações, suporte e tantas outras coisas que ampliaram minha visão.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="item l">
+
+<div class="card">
+
+<div class="tag">
+<span>🌱</span>O que essa fase me ensinou
+</div>
+
+<h3>Evoluir também é passar por caminhos inesperados</h3>
+
+<p>
+Nem todo caminho precisa ser o destino final para ter importância.
+Essa experiência me fez aprender muito, desenvolver autonomia, resolver problemas diferentes e enxergar a tecnologia de uma maneira mais ampla.
+Hoje consigo olhar para trás e reconhecer o quanto essa fase me fez crescer — mesmo sabendo que ainda existe muito caminho pela frente.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="item r">
+
+<div class="card">
+
+<div class="tag">
+<span>✨</span>Hoje
+</div>
+
+<h3>Ainda estou construindo meu lugar</h3>
+
+<p>
+Minha história na tecnologia ainda está sendo desenvolvida.
+Continuo estudando, experimentando e tentando entender cada vez melhor onde minhas habilidades podem chegar.
+Quero me aproximar cada vez mais da parte da tecnologia que une criação, resolução de problemas, experiência e pessoas.
+Porque gosto de tecnologia, mas também gosto de gente.
+Gosto de entender necessidades, comunicar ideias, encontrar soluções e criar algo que realmente faça sentido para quem está do outro lado.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="item l">
+
+<div class="card">
+
+<div class="tag">
+<span>🚀</span>Próximo capítulo
+</div>
+
+<h3>Para onde quero ir</h3>
+
+<p>
+Ainda não tenho todas as respostas — e talvez eu nem precise ter.
+Sei que quero continuar evoluindo até chegar mais perto daquilo que imagino para mim: uma tecnologia mais criativa, humana e conectada às pessoas.
+Porque acredito que a gente pode construir muita coisa sozinho.
+Mas não é sozinho que a gente realmente avança.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="fora">
+
+<p class="eb">04 — Fora do trabalho</p>
+
+<h2>O que me <em>faz bem.</em></h2>
+
+<p class="intro-hobbies">
+
+Algumas coisas que fazem parte de quem eu sou além da tecnologia.
+
+<span>pequenos detalhes sobre mim →</span>
+
+</p>
+
+
+<div class="pills">
+
+
+<div class="hobby-item">
+
+<input type="checkbox" name="hobby" id="leitura">
+
+<label for="leitura">
+<span>Leitura</span>
+<small>+ detalhes</small>
+</label>
+
+<div class="info-card">
+
+<span class="card-number">01</span>
+
+<h3>Leitura</h3>
+
+<p>
+Gosto de histórias que me fazem imaginar outros lugares, épocas e perspectivas. É uma forma de desacelerar e descobrir novos mundos.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="hobby-item">
+
+<input type="checkbox" name="hobby" id="musica">
+
+<label for="musica">
+<span>Música</span>
+<small>+ detalhes</small>
+</label>
+
+<div class="info-card">
+
+<span class="card-number">02</span>
+
+<h3>Música</h3>
+
+<p>
+A música é uma das formas que encontro para sentir e criar. Gosto de escrever, descobrir melodias e aprender teclado.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="hobby-item">
+
+<input type="checkbox" name="hobby" id="natureza">
+
+<label for="natureza">
+<span>Natureza</span>
+<small>+ detalhes</small>
+</label>
+
+<div class="info-card">
+
+<span class="card-number">03</span>
+
+<h3>Natureza</h3>
+
+<p>
+Plantas, flores e lugares tranquilos me ajudam a desacelerar. A natureza também é uma das minhas maiores fontes de inspiração.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="hobby-item">
+
+<input type="checkbox" name="hobby" id="criatividade">
+
+<label for="criatividade">
+<span>Criatividade</span>
+<small>+ detalhes</small>
+</label>
+
+<div class="info-card">
+
+<span class="card-number">04</span>
+
+<h3>Criatividade</h3>
+
+<p>
+Gosto de transformar ideias em algo visual, funcional e diferente. Criar é uma das maneiras que encontro de me expressar.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="hobby-item">
+
+<input type="checkbox" name="hobby" id="escrita">
+
+<label for="escrita">
+<span>Escrita</span>
+<small>+ detalhes</small>
+</label>
+
+<div class="info-card">
+
+<span class="card-number">05</span>
+
+<h3>Escrita</h3>
+
+<p>
+Escrevo histórias, músicas e pensamentos. Gosto de transformar sentimentos e ideias em palavras que tenham significado.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="hobby-item">
+
+<input type="checkbox" name="hobby" id="fotografia">
+
+<label for="fotografia">
+<span>Fotografia</span>
+<small>+ detalhes</small>
+</label>
+
+<div class="info-card">
+
+<span class="card-number">06</span>
+
+<h3>Fotografia</h3>
+
+<p>
+Gosto de registrar detalhes, paisagens, arquiteturas e momentos que normalmente passariam despercebidos.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="hobby-item">
+
+<input type="checkbox" name="hobby" id="viagens">
+
+<label for="viagens">
+<span>Viagens</span>
+<small>+ detalhes</small>
+</label>
+
+<div class="info-card">
+
+<span class="card-number">07</span>
+
+<h3>Viagens</h3>
+
+<p>
+Tenho vontade de conhecer novos lugares, culturas e pessoas. Viajar, para mim, também é uma forma de aprender.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="hobby-item">
+
+<input type="checkbox" name="hobby" id="tecnologia">
+
+<label for="tecnologia">
+<span>Tecnologia</span>
+<small>+ detalhes</small>
+</label>
+
+<div class="info-card">
+
+<span class="card-number">08</span>
+
+<h3>Tecnologia</h3>
+
+<p>
+Gosto de entender como as coisas funcionam, resolver problemas e transformar ideias em algo real. Foi na tecnologia que encontrei uma forma de unir lógica e criatividade.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<style>
+
+.fora{
+  position:relative
+}
+
+.intro-hobbies{
+  max-width:600px;
+  line-height:1.7;
+  margin-bottom:35px
+}
+
+.intro-hobbies span{
+  display:block;
+  margin-top:8px;
+  font-size:0.8rem;
+  letter-spacing:0.04em;
+  opacity:0.5
+}
+
+.pills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  align-items:flex-start
+}
+
+.hobby-item{
+  position:relative;
+  width:fit-content;
+  flex:0 0 auto
+}
+
+.hobby-item input{
+  display:none
+}
+
+.hobby-item label{
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:14px;
+  width:fit-content;
+  padding:11px 16px;
+  border:1px solid rgba(0,0,0,0.25);
+  border-radius:30px;
+  white-space:nowrap;
+  transition:all 0.25s ease
+}
+
+.hobby-item label:hover{
+  transform:translateY(-2px);
+  background:rgba(0,0,0,0.03)
+}
+
+.hobby-item label small{
+  font-size:0.65rem;
+  letter-spacing:0.08em;
+  opacity:0.45
+}
+
+.hobby-item input:checked + label{
+  background:rgba(0,0,0,0.04)
+}
+
+.hobby-item input:checked + label small{
+  opacity:0.8
+}
+
+.info-card{
+  display:none;
+  position:absolute;
+  left:0;
+  top:calc(100% + 16px);
+  width:280px;
+  padding:24px;
+  background:#f8f5ed;
+  border:1px solid rgba(0,0,0,0.12);
+  border-radius:4px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.08);
+  z-index:10
+}
+
+.hobby-item input:checked + label + .info-card{
+  display:block;
+  animation:cardIn 0.25s ease
+}
+
+.card-number{
+  display:block;
+  margin-bottom:10px;
+  font-size:0.65rem;
+  letter-spacing:0.15em;
+  opacity:0.45
+}
+
+.info-card h3{
+  margin:0 0 12px;
+  font-size:1.3rem
+}
+
+.info-card p{
+  margin:0;
+  font-size:0.9rem;
+  line-height:1.7;
+  opacity:0.75
+}
+
+@keyframes cardIn{
+  from{
+    opacity:0;
+    transform:translateY(-6px)
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0)
+  }
+}
+
+@media (max-width:600px){
+
+  .pills{
+    gap:8px
+  }
+
+  .hobby-item label{
+    padding:10px 13px;
+    gap:10px
+  }
+
+  .info-card{
+    width:260px;
+    max-width:calc(100vw - 60px)
+  }
+
+}
+
+</style>
+
+
+<script>
+
+const hobbies = document.querySelectorAll('.hobby-item input');
+
+hobbies.forEach(input => {
+
+  input.addEventListener('change', function () {
+
+    if (this.checked) {
+
+      hobbies.forEach(outro => {
+
+        if (outro !== this) {
+          outro.checked = false;
+        }
+
+      });
+
+    }
+
+  });
+
+});
+
+</script>
+
+
+<section class="ct">
+
+<p class="eb">05 — Contato</p>
+
+<h2>Vamos <em>conversar?</em></h2>
+
+<p class="lead">
+Aberto a conexões, parcerias e novas oportunidades.
+</p>
+
+
+<div class="contact-box">
+
+
+<a
+href="https://www.linkedin.com/in/lídia-bonim-9717b738b?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+target="_blank"
+rel="noopener noreferrer"
+class="contact-link"
+>
+Conectar no LinkedIn
+</a>
+
+
+<span class="contact-divider">ou</span>
+
+
+<a
+href="mailto:lidia.bonim@hotmail.com"
+class="contact-link email-link"
+>
+
+<span class="email-text normal">
+Falar comigo por e-mail
+</span>
+
+<span class="email-text hover">
+lidia.bonim@hotmail.com
+</span>
+
+</a>
+
+
+</div>
+
+</section>
+
+
+<style>
+
+.ct{
+  padding:100px 0
+}
+
+.ct .eb{
+  font-size:0.85rem;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  margin-bottom:18px;
+  opacity:0.6
+}
+
+.ct h2{
+  font-size:clamp(2.5rem,6vw,5rem);
+  line-height:1;
+  margin:0 0 20px
+}
+
+.ct h2 em{
+  font-style:italic
+}
+
+.ct .lead{
+  max-width:600px;
+  line-height:1.7;
+  margin-bottom:35px;
+  opacity:0.75
+}
+
+.contact-box{
+  display:inline-flex;
+  align-items:center;
+  gap:18px;
+  padding:14px 20px;
+  border:1px solid rgba(0,0,0,0.15);
+  border-radius:50px;
+  transition:border-color 0.3s ease
+}
+
+.contact-box:hover{
+  border-color:rgba(0,0,0,0.35)
+}
+
+.contact-link{
+  position:relative;
+  color:inherit;
+  text-decoration:none;
+  font-weight:600;
+  transition:opacity 0.3s ease
+}
+
+.contact-link:hover{
+  opacity:0.6
+}
+
+.contact-divider{
+  opacity:0.4;
+  font-size:0.85rem
+}
+
+.email-link{
+  min-width:190px
+}
+
+.email-text{
+  transition:opacity 0.25s ease
+}
+
+.email-text.hover{
+  position:absolute;
+  left:0;
+  top:0;
+  opacity:0;
+  white-space:nowrap
+}
+
+.email-link:hover .email-text.normal{
+  opacity:0
+}
+
+.email-link:hover .email-text.hover{
+  opacity:1
+}
+
+@media (max-width:600px){
+
+  .contact-box{
+    flex-direction:column;
+    align-items:stretch;
+    border-radius:20px;
+    gap:12px
+  }
+
+  .contact-divider{
+    text-align:center
+  }
+
+  .contact-link{
+    text-align:center
+  }
+
+  .email-link{
+    min-width:auto
+  }
+
+}
+
+</style>
+
+
+</div>
+
+
+<script>
+
+var its=document.querySelectorAll('.item'),
+tl=document.getElementById('tl'),
+fl=document.getElementById('fill');
+
+var io=new IntersectionObserver(
+  function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting)
+        e.target.classList.add('in')
+    })
+  },
+  {threshold:.4}
+);
+
+its.forEach(function(i){
+  io.observe(i)
+});
+
+function upd(){
+
+  var r=tl.getBoundingClientRect(),
+  p=(innerHeight*.6-r.top)/r.height;
+
+  fl.style.height=
+    Math.max(0,Math.min(1,p))*100+'%'
+
+}
+
+addEventListener(
+  'scroll',
+  function(){
+    requestAnimationFrame(upd)
+  },
+  {passive:true}
+);
+
+addEventListener('resize',upd);
+
+upd();
+
+</script>
+
+
+</body>
+
+</html>
